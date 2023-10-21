@@ -1,0 +1,4 @@
+[slaves]
+
+slave ansible_host=o192.168.35.102
+
