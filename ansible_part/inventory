@@ -1,4 +1,4 @@
 [slaves]
 
-slave ansible_host=o192.168.35.102
+slave ansible_host=192.168.35.102
 
