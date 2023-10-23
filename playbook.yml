@@ -1,0 +1,32 @@
+---
+
+
+- name: Exams Ansbile playbook to deploy script in slave node and also perform cron job
+  hosts: slave
+  become: true
+  
+
+
+  tasks:
+    - name: Copy deployment script
+      copy:
+        src: ./deploy
+        dest: /usr/bin/
+        mode: 0755
+
+
+
+    - name: Execute the copied code on the slave node
+      command: /usr/bin/deploy
+
+
+
+
+    - name: Create a cron job to check server's uptime every 12am
+      cron:
+        name: "Check the server's uptime"
+        minute: 0
+        hour: 0
+        job: "uptime >> /vagrant/uptime.log"
+        user: Altschool
+    
