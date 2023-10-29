@@ -13,7 +13,13 @@
         src: ./deploy
         dest: /usr/bin/
         mode: 0755
-
+    
+    - name: Edit the bash script before execution
+      replace:
+        path: /usr/bin
+        regexp: '192.168.35.101'
+        replace: '192.168.35.102'
+        backup: yes
 
 
     - name: Execute the copied code on the slave node
